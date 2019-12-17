@@ -8,7 +8,7 @@ public class Variable {
 		float ramDefault = 8.00f;
 		double ramAvailable = 7.70;
 		char osName = 'W';
-		boolean corporateOS = true;
+		boolean isCorporateOS = true;
 
 		System.out.println(osVersion);
 		System.out.println(processor);
@@ -17,6 +17,6 @@ public class Variable {
 		System.out.println(ramDefault);
 		System.out.println(ramAvailable);
 		System.out.println(osName);
-		System.out.println(corporateOS);
+		System.out.println(isCorporateOS);
 	}
 }
