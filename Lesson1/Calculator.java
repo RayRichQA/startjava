@@ -1,27 +1,25 @@
 public class Calculator {
 	
 	public static void main(String[] args) {
-		int a = 50, b = 3;
+		int firstNumber = 50, secondNumber = 3;
 		int result = 0;
 		char mathOperation = '^';
 
 		if(mathOperation == '+') {
-			result = a + b;
+			result = firstNumber + secondNumber;
 		} else if(mathOperation == '-') {
-			result = a - b;
+			result = firstNumber - secondNumber;
 		} else if(mathOperation == '*') {
-			result = a * b;
+			result = firstNumber * secondNumber;
 		} else if(mathOperation == '/') {
-			result = a / b;
+			result = firstNumber / secondNumber;
 		} else if(mathOperation == '^') {
-			result = a;
-			for(int i = 1; i < b; i++) {
-				result *= a;
+			result = 1;
+			for(int i = 0; i < secondNumber; i++) {
+				result *= firstNumber;
 			}
 		} else if(mathOperation == '%') {
-			result = a % b;
-		} else {
-			System.out.println("You've entered the wrong symbol.");
+			result = firstNumber % secondNumber;
 		}
 		System.out.println(result);
 	}
