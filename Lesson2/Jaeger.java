@@ -1,44 +1,89 @@
 public class Jaeger {
-	
-	private String modelName = "Bracer Phoenix";
-	private String mark = "Mark-5";
-	private String origin = "USA";
-	private float height = 70.7f;
-	private float weight = 2.1f;
-	private int speed = 3;
-	private int strength = 8;
-	private int armor = 9;
 
-	public String getModelName() {
-		return modelName;
-	}
+    private String modelName;
+    private String mark;
+    private String origin;
+    private float height;
+    private float weight;
+    private int speed;
+    private int strength;
+    private int armor;
 
-	public void setModelName(String modelName) {
-		if(modelName == "") {
-			System.out.println("Пустая строка.");
-		} else {
-			this.modelName = modelName;
-		}		
-	}
+    public Jaeger(){}
 
-	public boolean drift() {
-		System.out.println("Вы вошли в дрифт");
-		return true;
-	}
+    public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.origin = origin;
+        this.height = height;
+        this.weight = weight;
+        this.speed = speed;
+        this.strength = strength;
+        this.armor = armor;
+    }
 
-	public void move() {
-		System.out.println("Вы прошли 5 шагов");
-	}
+    public String getModelName() {
+        return modelName;
+    }
 
-	public String scanKaiju() {
-		return "nothing";
-	}
+    public void setModelName(String modelName) {
+        if(modelName.equals("")) {
+            System.out.println("Пустая строка.");
+        } else {
+            this.modelName = modelName;
+        }
+    }
 
-	public void useVortexCannon() {
-		
-	}
+    public void setMark(String mark) {
+        if(mark.equals("")) {
+            System.out.println("Пустая строка.");
+        } else {
+            this.mark = mark;
+        }
+    }
 
-	public String toString() {
-		return "modelName = " + modelName + " mark = " + mark;
-	}
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        if(origin.equals("")) {
+            System.out.println("Пустая строка.");
+        } else {
+            this.origin = origin;
+        }
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public boolean isDestroyed() {
+        System.out.println("Robot " + this.modelName + " was destroyed.");
+        return true;
+    }
+    int step = 0;
+    public String move() {
+        return ++step + " step.";
+    }
+
+    public String toString() {
+        return "modelName = " + modelName + ", mark = " + mark + ", origin = " + origin + ", height = " + height + ", weight = " + weight + ", speed = " + speed + ", strength = " + strength + ", armor = " + armor;
+    }
 }
