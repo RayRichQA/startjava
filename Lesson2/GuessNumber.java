@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 class GuessNumber {
+   /* private Player player1, player2;
+
+    GuessNumber(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+    }*/
 
     private int number;
     private Scanner scanner = new Scanner(System.in);
@@ -21,6 +27,10 @@ class GuessNumber {
     int setUserNumber() {
         System.out.println("Введите число: ");
         return scanner.nextInt();
+    }
+
+    void startGame(Player player) {
+        System.out.println(player.getName() + ", компьютер загадал число. Начинаем игру.");
     }
 
     String guess(int userNumber, int number) {
