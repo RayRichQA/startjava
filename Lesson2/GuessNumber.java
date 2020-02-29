@@ -1,67 +1,72 @@
 import java.util.Scanner;
 
 class GuessNumber {
-   /* private Player player1, player2;
 
-    GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-    }*/
+    public GuessNumber() {}
+
+    public GuessNumber(Player player1, Player player2) {
+        setNumber();
+        startGame(player1);
+        System.out.println(guess(player1, getNumber()));
+        setNumber();
+        startGame(player2);
+        System.out.println(guess(player2, getNumber()));
+    }
 
     private int number;
     private Scanner scanner = new Scanner(System.in);
 
-    int getNumber() {
+    int getNumber () {
         return number;
     }
 
-    void setNumber() {
+    void setNumber () {
         number = (int) Math.round(Math.random() * 100);
     }
 
-    String setUserName() {
+    String setUserName () {
         System.out.println("Введите Ваше имя: ");
         return scanner.next();
     }
 
-    int setUserNumber() {
+    int setUserNumber () {
         System.out.println("Введите число: ");
         return scanner.nextInt();
     }
 
-    void startGame(Player player) {
+    void startGame (Player player){
         System.out.println(player.getName() + ", компьютер загадал число. Начинаем игру.");
     }
 
-    String guess(int userNumber, int number) {
-        while(userNumber != number) {
-            if(userNumber < number) {
-                System.out.println("Введенное Вами число = " + userNumber + " меньше того, что загадал компьютер.");
-                userNumber = anotherTry();
-            } if(userNumber > number) {
-                System.out.println("Введенное Вами число = " + userNumber + " больше того, что загадал компьютер.");
-                userNumber = anotherTry();
+    String guess (Player player, int number){
+        player.setNumber(setUserNumber());
+        while (player.getNumber() != number) {
+            if (player.getNumber() < number) {
+                System.out.println("Введенное Вами число = " + player.getNumber() + " меньше того, что загадал компьютер.");
+                player.setNumber(anotherTry());
+            }
+            if (player.getNumber() > number) {
+                System.out.println("Введенное Вами число = " + player.getNumber() + " больше того, что загадал компьютер.");
+                player.setNumber(anotherTry());
             }
         }
         System.out.println("Вы угадали!");
-        continueGame();
         return "";
     }
 
-    private int anotherTry() {
+    private int anotherTry () {
         System.out.println("Попробуйте ещё: ");
         return scanner.nextInt();
     }
 
-    private void continueGame() {
-        String userAnswer;
-        do {
-            System.out.println("Хотите продолжить?");
-            userAnswer = scanner.next();
-            if(userAnswer.equals("Да")) {
-                setNumber();
-                guess(setUserNumber(), getNumber());
-            }
-        } while (!userAnswer.equals("Да") && !userAnswer.equals("Нет"));
+    private String userAnswer;
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    void repeatGame() {
+        System.out.println("Хотите продолжить?");
+        userAnswer = scanner.next();
     }
 }
